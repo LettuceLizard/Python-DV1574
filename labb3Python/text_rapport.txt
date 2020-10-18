@@ -1,0 +1,45 @@
+
+filen text.txt inehåller 466 ord varav 93 är unika.
+
+de vanligaste orden är:
+
+ord           antal förekomster
+----------------------------------
+eh             33
+my             20
+the             15
+umbrella             15
+(Ella             12
+ella             12
+eh)             12
+be             11
+You             10
+Under             9
+
+---------------------------------------------------------------------------------------
+medelord frekvensen är 3, och den frekvensen har följande ord:
+
+come    And    for    Because    sun    shines,    shine    
+Told    forever    Said    a    friend    Took    oath    
+I'ma    stick    out    till    end    Now    ever    
+Know    each    other    It's    to    
+---------------------------------------------------------------------------------------
+Medianordfrekvensen i texten är 1, och den frekvensen har följande ord:
+
+No    stones    Let    rain,    I    hydroplane    bank    
+Coming    down    Dow    Jones    gone,    Rocafella    We    
+fly    higher    weather    G5's    are    better,    know    
+anticipation,    precipitation.    Stacked    chips    rainy    day    Jay,    
+Rain    Man    back    little    Ms.    Sunshine    Rihanna    
+where    at?    worlds    apart    May    magazines    But    
+you'll    star    cause    dark    can't    see    shiny    
+cars    that's    when    there    With    share    These    
+fancy    things,    will    You're    of    entity,    Infinity    
+war    took    world    dealt    cards    If    hand    
+hard,    mend    your    run    into    arms    OK    
+don't    alarmed    There's    no    distance    our    love    
+So    go    on    let    rain    pour    all    
+Ooh    Oh    
+---------------------------------------------------------------------------------------
+
+det vanligaste ordet är No och det utgör 0.21% av hela texten.

@@ -1,0 +1,9 @@
+Entry: 1 | Time: 2020-10-18 18:11:45.610012 
+basicwriteup.txt: 78b0bcc4a99db4171f534dc686a59240
+test.py: f4d5d0c0671be202bc241807c243e80b
+test3.py: f4d5d0c0671be202bc241807c243e80b
+intrusion-detection.py: 7aad0e21779a549d97dcad2cdf6b00e0
+ids_functions.py: 962683f0741b6e7637c0ab2ff74d0fbd
+ids_functions.cpython-38.pyc: febfe03e27e40d4fe83c1a49b0fc4be5
+functions.cpython-38.pyc: 29954ff252e60b2db7f1040ea41e6356
+-------------------------------------
