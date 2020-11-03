@@ -21,16 +21,21 @@ from datetime import datetime
 
 PATH_TO_DATABASE = os.path.join(os.getcwd(), 'very_secure_database')
 
-#run from the previous folder
-os.chdir('../../')
+os.chdir('../')
 
 FOLDER_TO_CHECK = os.getcwd()
+CHECK_TIME = 40
 
-#!get the last entry on each startup
+
+last_entry = ids.get_last_entry(PATH_TO_DATABASE)
+print(last_entry)
 
 while True:
     dict1 = ids.hashing_files_in_folders(FOLDER_TO_CHECK)
-    last_entry = ids.temp_write_to_database(dict1, datetime.now(), last_entry, PATH_TO_DATABASE)
+    #fixa så att koden funkar när databasen är tom
+    tempdict = ids.read_from_database(last_entry, PATH_TO_DATABASE)
+    ids.write_to_database(dict1, datetime.now(), last_entry, PATH_TO_DATABASE)
+    print(tempdict)
+    #!compare dict1 with previous database entry
 
-    sleep(10)
-# last_entry = ids.write_to_database(dict1, str(datetime.now()), last_entry, PATH_TO_DATABASE) # not a loop last entry not working
+    sleep(CHECK_TIME)

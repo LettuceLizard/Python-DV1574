@@ -26,22 +26,24 @@ def hashing_files_in_folders(folder):
                         hash_table[file] = hash_algoritm.hexdigest()
     return hash_table
 
+def get_last_entry(path):
+    file_names = os.listdir(path=path)
+    if file_names == []: return 0
+    return max([int(e[0]) for e in file_names])
 
-# change to a new file each entry
-def write_to_database(dictionary, time, last_entry, path): #2
-    with open("IDS/very_secure_database.txt", "a") as a_file:
-        a_file.write(f"Entry: {last_entry+1} | Time: {time} \n")
-        for k, v in dictionary.items():
-            a_file.write(f"{k}: {v}\n")
-        a_file.write("-------------------------------------")
-    return last_entry+1
 
-def temp_write_to_database(dictionary, time, last_entry, path):
-    filename = f"{str(last_entry+1)}_str(time).txt"
+def write_to_database(dictionary, time, last_entry, path):
+    filename = f"{str(last_entry+1)}.txt"
     with open(os.path.join(path, filename), 'w') as w_file:
         for k, v in dictionary.items():
-            w_file.write(f"{k}: {v}\n")
+            w_file.write(f"{k}:{v}\n")
+    return last_entry+1
 
-def read_from_database(only_last_entry=True):
-    if only_last_entry:
-        pass
+def read_from_database(entry, path):
+    dictionary = {}
+    filename = str(entry) + '.txt'
+    with open(os.path.join(path, filename), 'r') as r_file:
+        for line in r_file:
+            temp = line.strip('\n').split(':')
+            dictionary[temp[0]] = temp[1]
+    return dictionary
