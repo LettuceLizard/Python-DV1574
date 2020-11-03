@@ -1,0 +1,13 @@
+Övervaka filer i ett katalogträd med flera mappar och filer, dvs en mapp med hela sitt underträd. Programmet
+behöver inte kunna hantera filnamn som innehåller blanktecken.
+
+Varje gång ditt program körs för den aktuella mappen ska en logg med hash-signaturer för alla filer i
+strukuren skapas och sparas i mappen. Denna logg sparas på en fil. Nästa gång programmet körs ska den
+nya loggen jämföras med den gamla och programmet ska meddela vilka element som ändrats sedan den förra körningen.
+
+När programmet körs ska det genom utskrifter tydligt framgå:
+    vilka filer som ändrats
+    vilka filer som tillkommit
+    vilka filer som försvunnit
+
+Ni behöver inte kunna se var i filerna förändringarna skett

@@ -1,0 +1,8 @@
+
+filen text.txt inehåller 10 ord varav 1 är unika.
+
+de vanligaste orden är:
+
+ord           antal förekomster
+----------------------------------
+kekw           5yeet           4dksaödk           1
