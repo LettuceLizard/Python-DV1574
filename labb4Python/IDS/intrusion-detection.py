@@ -1,5 +1,6 @@
 """
 fixme(1): create exclusion folders
+fixme(): make the code work when very_secure_database is empty
 """
 
 """
@@ -28,14 +29,13 @@ CHECK_TIME = 40
 
 
 last_entry = ids.get_last_entry(PATH_TO_DATABASE)
-print(last_entry)
 
 while True:
     dict1 = ids.hashing_files_in_folders(FOLDER_TO_CHECK)
-    #fixa så att koden funkar när databasen är tom
-    tempdict = ids.read_from_database(last_entry, PATH_TO_DATABASE)
     ids.write_to_database(dict1, datetime.now(), last_entry, PATH_TO_DATABASE)
-    print(tempdict)
-    #!compare dict1 with previous database entry
+    dict2 = ids.read_from_database(last_entry, PATH_TO_DATABASE)
+    #*fixme() compare_files compares the same dictionary
+    ids.compare_files(dict1, dict2, last_entry)
 
+    last_entry += 1
     sleep(CHECK_TIME)

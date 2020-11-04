@@ -37,7 +37,6 @@ def write_to_database(dictionary, time, last_entry, path):
     with open(os.path.join(path, filename), 'w') as w_file:
         for k, v in dictionary.items():
             w_file.write(f"{k}:{v}\n")
-    return last_entry+1
 
 def read_from_database(entry, path):
     dictionary = {}
@@ -47,3 +46,8 @@ def read_from_database(entry, path):
             temp = line.strip('\n').split(':')
             dictionary[temp[0]] = temp[1]
     return dictionary
+
+def compare_files(dict1, dict2, last_entry):
+    #!get the largest lent(dict 1 or 2)
+    #!for e in largest dict:
+        #!do stuff

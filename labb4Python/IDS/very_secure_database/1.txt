@@ -1,0 +1,8 @@
+basicwriteup.txt:78b0bcc4a99db4171f534dc686a59240
+ids_functions.py:80ac43cb313a0fd80e984b7f404efbb5
+intrusion-detection.py:bfff595c5ba052f241a7336e2cc87774
+very_secure_database.txt:a940022a7b2b480dd67aa55ece741324
+functions.cpython-38.pyc:6ad11e2e08eb8742cf18cf19b241fff9
+ids_functions.cpython-38.pyc:2a0557eebe20257a1cfe4bd99b49b0bc
+test.py:f4d5d0c0671be202bc241807c243e80b
+test3.py:f4d5d0c0671be202bc241807c243e80b
