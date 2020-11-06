@@ -31,7 +31,7 @@ CHECK_TIME = 40
 last_entry = ids.get_last_entry(PATH_TO_DATABASE)
 
 while True:
-    dict1 = ids.hashing_files_in_folders(FOLDER_TO_CHECK)
+    dict1 = ids.hashing_files_in_folders(FOLDER_TO_CHECK) # den kommer alltid vara samma
     ids.write_to_database(dict1, datetime.now(), last_entry, PATH_TO_DATABASE)
     dict2 = ids.read_from_database(last_entry, PATH_TO_DATABASE)
     #*fixme() compare_files compares the same dictionary

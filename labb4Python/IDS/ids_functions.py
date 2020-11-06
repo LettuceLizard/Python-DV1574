@@ -29,7 +29,7 @@ def hashing_files_in_folders(folder):
 def get_last_entry(path):
     file_names = os.listdir(path=path)
     if file_names == []: return 0
-    return max([int(e[0]) for e in file_names])
+    return max([int(e.strip('.txt')) for e in file_names])
 
 
 def write_to_database(dictionary, time, last_entry, path):
@@ -47,7 +47,15 @@ def read_from_database(entry, path):
             dictionary[temp[0]] = temp[1]
     return dictionary
 
+#potential problem might not check if hash sum was changed
 def compare_files(dict1, dict2, last_entry):
-    #!get the largest lent(dict 1 or 2)
-    #!for e in largest dict:
-        #!do stuff
+    #vilka filer som är samma
+    shared_values = [k for k in dict1 if dict1.get(k) == dict2.get(k)]
+    all_keys = list(dict1.keys()) + list(dict2.keys())
+    uniqe_keys = list(set(all_keys))
+    keys_to_check = [e for e in uniqe_keys if e not in shared_values]
+    for element in keys_to_check:
+        #!check if element was added
+        #!check if element was removed
+        #!check if element was changed
+    # print(all_keys)
