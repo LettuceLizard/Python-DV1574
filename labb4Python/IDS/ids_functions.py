@@ -2,8 +2,13 @@
 fixme(1): add idenfication of evry entry so reading the database gets
 easier
 
-limitation(2): cant exit the program pga last entry gets saved in memmory. fixme() add
-support for closing the program
+fixme(): add support for saving the date when the file is created
+
+limitation: dont think the code works when there is no very_secure_database
+folder
+
+error(): the code has different hash values on files that has not been
+changed
 """
 import os
 import hashlib
@@ -11,18 +16,16 @@ import hashlib
 def hashing_files_in_folders(folder):
     #Returns a dictionary with filename: binary hash of file
     hash_table = {}
-    for dirname, dirpath, filenames in os.walk(folder):
-        hash_algoritm = hashlib.md5() #vet nt om detta löser att programmet nt rensar föregående hash
+    for dirname, dirpath, filenames in os.walk(folder): #os.walk är en recursive funktion se os.walk documentationen
+        hash_algoritm = hashlib.md5()
         if filenames != []:
             for file in filenames:
                 current_file_path = os.path.join(dirname, file)
-
                 with open(current_file_path, "rb") as r_file:
-                    f = r_file.read(8000) #how many bytes the program reads at once
+                    f = r_file.read(8000)
                     while len(f) > 0:
                         hash_algoritm.update(f)
                         f = r_file.read(8000)
-
                         hash_table[file] = hash_algoritm.hexdigest()
     return hash_table
 
@@ -47,15 +50,23 @@ def read_from_database(entry, path):
             dictionary[temp[0]] = temp[1]
     return dictionary
 
-#potential problem might not check if hash sum was changed
 def compare_files(dict1, dict2, last_entry):
-    #vilka filer som är samma
     shared_values = [k for k in dict1 if dict1.get(k) == dict2.get(k)]
     all_keys = list(dict1.keys()) + list(dict2.keys())
-    uniqe_keys = list(set(all_keys))
-    keys_to_check = [e for e in uniqe_keys if e not in shared_values]
+    unique_keys = list(set(all_keys))
+    keys_to_check = [e for e in unique_keys if e not in shared_values]
+
     for element in keys_to_check:
-        #!check if element was added
         #!check if element was removed
-        #!check if element was changed
-    # print(all_keys)
+        if element in dict2.keys() and element not in dict1.keys():
+            print(f"the folowing element was REMOVED: {element}")
+        #!check if element was added
+        elif element not in dict2.keys() and element in dict1.keys():
+            print(f"the folowing element was ADDED: {element}")
+        elif dict1[element] != dict2[element]:
+            print()
+            print(dict1[element], dict2[element])
+            print(f"the folowing element was CHANGED: {element}")
+        else:
+            print(f"ERROR WITH THE ELEMENT: {element}")
+    print()
